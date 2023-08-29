@@ -6,7 +6,7 @@ import (
 )
 
 type BilardoApp struct {
-	Fiber  *fiber.App
-	Db     *gorm.DB
 	Config AppConfig
+	Db     *gorm.DB
+	Fiber  *fiber.App
 }
