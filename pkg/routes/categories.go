@@ -6,7 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func categoriesRoutes(bilardo *webcore.Bilardo, api fiber.Router) {
+func categoriesRoutes(bilardo *webcore.BilardoApp, api fiber.Router) {
 	categories := api.Group("/categories")
 	categories.Get("/", func(c *fiber.Ctx) error {
 		return features.FindAllCategories(c, bilardo)

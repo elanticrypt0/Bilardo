@@ -15,7 +15,7 @@ func main() {
 
 	app_config := webcore.LoadConfig()
 
-	bilardo := webcore.Bilardo{
+	bilardo := webcore.BilardoApp{
 		Fiber:  fiber.New(fiber.Config{}),
 		Config: app_config,
 		Db:     webcore.Connect2DB(&app_config),

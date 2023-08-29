@@ -10,13 +10,13 @@ type Category struct {
 	Name string `json:"name"`
 }
 
-func FindOneCategory(bilardo *webcore.Bilardo, id int) Category {
+func FindOneCategory(bilardo *webcore.BilardoApp, id int) Category {
 	var category Category
 	bilardo.Db.First(&category, id)
 	return category
 }
 
-func FindAllCategories(bilardo *webcore.Bilardo) []Category {
+func FindAllCategories(bilardo *webcore.BilardoApp) []Category {
 	var categories []Category
 	// TODO revisar esta parte
 	// bilardo.Db.Order("created_at ASC").Find(&categories)
@@ -24,7 +24,7 @@ func FindAllCategories(bilardo *webcore.Bilardo) []Category {
 	return categories
 }
 
-func CreateCategory(bilardo *webcore.Bilardo, name string) Category {
+func CreateCategory(bilardo *webcore.BilardoApp, name string) Category {
 	category := Category{
 		Name: name,
 	}
@@ -32,12 +32,12 @@ func CreateCategory(bilardo *webcore.Bilardo, name string) Category {
 	return category
 }
 
-func UpdateCategory(bilardo *webcore.Bilardo, category Category) Category {
+func UpdateCategory(bilardo *webcore.BilardoApp, category Category) Category {
 	bilardo.Db.Save(&category)
 	return category
 }
 
-func DeleteCategory(bilardo *webcore.Bilardo, id int) Category {
+func DeleteCategory(bilardo *webcore.BilardoApp, id int) Category {
 	var category Category
 	bilardo.Db.First(&category, id)
 	bilardo.Db.Delete(&category)

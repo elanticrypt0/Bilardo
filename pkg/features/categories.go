@@ -8,17 +8,17 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func FindOneCategory(c *fiber.Ctx, appcore *webcore.Bilardo) error {
+func FindOneCategory(c *fiber.Ctx, appcore *webcore.BilardoApp) error {
 	id, _ := strconv.Atoi(c.Params("id", "0"))
 	return c.JSON(models.FindOneCategory(appcore, id))
 }
 
-func FindAllCategories(c *fiber.Ctx, appcore *webcore.Bilardo) error {
+func FindAllCategories(c *fiber.Ctx, appcore *webcore.BilardoApp) error {
 	categories := models.FindAllCategories(appcore)
 	return c.JSON(categories)
 }
 
-func CreateCategory(c *fiber.Ctx, appcore *webcore.Bilardo) error {
+func CreateCategory(c *fiber.Ctx, appcore *webcore.BilardoApp) error {
 	// name comes from json in body
 	cat := new(models.Category)
 	c.BodyParser(&cat)
@@ -26,7 +26,7 @@ func CreateCategory(c *fiber.Ctx, appcore *webcore.Bilardo) error {
 	return c.JSON(category)
 }
 
-func UpdateCategory(c *fiber.Ctx, appcore *webcore.Bilardo) error {
+func UpdateCategory(c *fiber.Ctx, appcore *webcore.BilardoApp) error {
 	id, _ := strconv.Atoi(c.Params("id", "0"))
 	category := models.FindOneCategory(appcore, id)
 	cat := new(models.Category)
@@ -36,7 +36,7 @@ func UpdateCategory(c *fiber.Ctx, appcore *webcore.Bilardo) error {
 	return c.JSON(category)
 }
 
-func DeleteCategory(c *fiber.Ctx, appcore *webcore.Bilardo) error {
+func DeleteCategory(c *fiber.Ctx, appcore *webcore.BilardoApp) error {
 	id, _ := strconv.Atoi(c.Params("id", "0"))
 	category := models.DeleteCategory(appcore, id)
 	return c.JSON(category)

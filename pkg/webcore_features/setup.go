@@ -6,11 +6,11 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func Setup(c *fiber.Ctx, appcore *webcore.Bilardo) error {
+func Setup(c *fiber.Ctx, appcore *webcore.BilardoApp) error {
 	migrateModels(appcore)
 	return c.SendString("Setup enabled. Models Migrated.")
 }
 
-func migrateModels(appcore *webcore.Bilardo) {
+func migrateModels(appcore *webcore.BilardoApp) {
 	appcore.Db.AutoMigrate(&models.Category{})
 }

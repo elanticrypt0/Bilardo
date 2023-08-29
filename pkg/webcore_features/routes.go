@@ -5,7 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func SetupRoutes(bilardo *webcore.Bilardo) {
+func SetupRoutes(bilardo *webcore.BilardoApp) {
 
 	// setup
 	setup := bilardo.Fiber.Group("/api/setup")

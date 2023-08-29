@@ -5,7 +5,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type Bilardo struct {
+type BilardoApp struct {
 	Fiber  *fiber.App
 	Db     *gorm.DB
 	Config AppConfig

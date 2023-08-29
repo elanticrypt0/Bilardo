@@ -10,7 +10,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func Seed(c *fiber.Ctx, bilardo *webcore.Bilardo) error {
+func Seed(c *fiber.Ctx, bilardo *webcore.BilardoApp) error {
 	// seedCategories()
 	return c.JSON("OK")
 }
@@ -19,7 +19,7 @@ func seedTable(table_name string) {
 
 }
 
-func seedCategories(bilardo *webcore.Bilardo) {
+func seedCategories(bilardo *webcore.BilardoApp) {
 	file := helpers.ReadJsonFile("categories")
 	cat := []models.Category{}
 	err := json.Unmarshal(file, &cat)
