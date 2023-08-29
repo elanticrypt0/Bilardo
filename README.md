@@ -19,3 +19,6 @@ Las "features" son los controladores de las rutas y reciben 2 parámetros: 1) el
 
 Los modelos deben recibir también la variable que apunte a *webcore.Bilardo
 
+## Public
+
+los archivos publicos están dentro de la carpeta public y por defecto tienen varios accesos. Esto se puede ver en webcore_features/routes.go
