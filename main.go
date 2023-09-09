@@ -25,8 +25,8 @@ func main() {
 	// necesario para poder utilizar la WUI
 	bilardo.Fiber.Use(cors.New())
 	bilardo.Fiber.Use(cors.New(cors.Config{
-		AllowOrigins: "http://localhost:3000,http://localhost:3001,http://localhost:65065",
-		AllowHeaders: "Origin, Content-Type, Accept",
+		AllowOrigins: app_config.App_CORS_Origins,
+		AllowHeaders: app_config.APP_CORS_Headers,
 	}))
 
 	bilardo.Fiber.Use(recover.New())

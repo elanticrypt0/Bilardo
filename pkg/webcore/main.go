@@ -14,6 +14,8 @@ type AppConfig struct {
 	App_url           string
 	App_setup_enabled bool
 	App_debug_mode    bool
+	App_CORS_Origins  string
+	APP_CORS_Headers  string
 	Db_config         DatabaseConfig
 }
 
@@ -29,6 +31,8 @@ func LoadConfig() AppConfig {
 		App_url:           os.Getenv("APP_SERVER_HOST") + ":" + os.Getenv("APP_SERVER_PORT"),
 		App_setup_enabled: os.Getenv("APP_SETUP_ENABLED") == "true",
 		App_debug_mode:    os.Getenv("APP_DEBUG_MODE") == "true",
+		App_CORS_Origins:  os.Getenv("APP_CORS_ORIGINS"),
+		APP_CORS_Headers:  os.Getenv("APP_CORS_HEADERS"),
 		Db_config: DatabaseConfig{
 			Host:     os.Getenv("DB_HOST"),
 			Port:     os.Getenv("DB_PORT"),
